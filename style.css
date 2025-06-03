@@ -1,0 +1,82 @@
+:root {
+  --bg-light: #fff0f5;
+  --text-light: #2c003e;
+  --accent-light: #ff69b4;
+
+  --bg-dark: #1c1c1c;
+  --text-dark: #f2f2f2;
+  --accent-dark: #ffb6c1;
+}
+
+[data-theme="light"] {
+  background-color: var(--bg-light);
+  color: var(--text-light);
+}
+
+[data-theme="dark"] {
+  background-color: var(--bg-dark);
+  color: var(--text-dark);
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  padding: 2rem;
+  transition: background-color 0.4s, color 0.4s;
+}
+
+header, section, footer {
+  margin-bottom: 2rem;
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+header {
+  text-align: center;
+  background-color: var(--accent-light);
+  color: white;
+}
+
+[data-theme="dark"] header {
+  background-color: var(--accent-dark);
+}
+
+h1, h2 {
+  margin-top: 0;
+}
+
+ul {
+  list-style-type: square;
+  padding-left: 1.5rem;
+}
+
+.project {
+  border-left: 4px solid var(--accent-light);
+  padding-left: 1rem;
+  margin-bottom: 1rem;
+}
+
+[data-theme="dark"] .project {
+  border-color: var(--accent-dark);
+}
+
+#theme-toggle {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  background-color: #ff1493;
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#theme-toggle:hover {
+  background-color: #d01075;
+}
+
+footer {
+  text-align: center;
+  font-size: 0.9rem;
+}
