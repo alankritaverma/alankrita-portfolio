@@ -1,50 +1,103 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Alankrita Verma | Portfolio</title>
-  <link rel="stylesheet" href="style.css" />
-  <script defer src="script.js"></script>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <header>
-    <h1>Alankrita Verma</h1>
-    <p>Passionate Web Developer | Tech Enthusiast</p>
-    <button id="theme-toggle">Toggle Theme</button>
+    <div class="logo" style="font-weight: 800; font-size: 1.3rem; color: #f72585;">
+      Alankrita Verma
+    </div>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+      <button onclick="toggleDarkMode()" aria-label="Toggle dark mode" style="margin-left: 1rem; background:none; border:none; cursor:pointer; color:#f72585; font-size:1.2rem;">
+        <i class="fas fa-adjust"></i>
+      </button>
+    </nav>
   </header>
 
-  <section id="about">
-    <h2>About Me</h2>
-    <p>I am a tech-savvy student with a passion for web development, problem solving, and exploring new technologies.</p>
+  <section id="home" class="hero">
+    <h1>Hi, I'm Alankrita Verma</h1>
+    <p>Full-Stack Developer | Tech Enthusiast | Problem Solver</p>
   </section>
 
-  <section id="skills">
+  <section id="skills" class="section">
     <h2>Technical Skills</h2>
-    <ul>
-      <li><strong>Coding:</strong> HTML, CSS, JavaScript, Java, Python, C, Data Structures & Algorithms, Basic ML & AI</li>
-      <li><strong>Web Dev Tools:</strong> Node.js, React.js, Express.js, Bootstrap, MySQL</li>
-      <li><strong>Dev Tools:</strong> VS Code, Git & GitHub, Linux OS</li>
-      <li><strong>Other Skills:</strong> Project Management, Teamwork, Time Management, Fluent in English & Hindi</li>
-    </ul>
+    <div class="skills">
+      <div class="skill">HTML, CSS, JavaScript</div>
+      <div class="skill">Java, Python, C</div>
+      <div class="skill">Data Structures & Algorithms</div>
+      <div class="skill">Basic ML & AI knowledge</div>
+      <div class="skill">Node.js, React.js, Express.js</div>
+      <div class="skill">MySQL, MongoDB</div>
+    </div>
   </section>
 
-  <section id="projects">
+  <section id="projects" class="section projects">
     <h2>Projects</h2>
-    <div class="project">
-      <h3>1. Journaling Website – March 2024</h3>
-      <p>Developed a user-friendly journaling platform <strong>(Binary Journals)</strong> with authentication and responsive design.</p>
-      <p><strong>Technologies:</strong> HTML, CSS, Java Servlets, MySQL</p>
+
+    <div class="project-item">
+      <h3>Journaling Website - March 2024</h3>
+      <ul>
+        <li>Developed a user-friendly journaling website (Binary Journals) that allows users to create, edit, and manage personal journal entries.</li>
+        <li>Implemented features such as secure user authentication and a responsive design for seamless access across devices.</li>
+        <li>Ensured a smooth user experience with a scalable backend and robust database support.</li>
+        <li><strong>Technologies used:</strong> Frontend - HTML, CSS | Backend - MySQL, Java Servlets.</li>
+      </ul>
     </div>
-    <div class="project">
-      <h3>2. E-commerce Website – March 2025</h3>
-      <p>Built a modern e-commerce site <strong>(Velvet Vogue)</strong> with cart, checkout, and secure login features.</p>
-      <p><strong>Technologies:</strong> React.js, CSS, Node.js, Express.js, MongoDB</p>
+
+    <div class="project-item">
+      <h3>E-commerce Website - March 2025</h3>
+      <ul>
+        <li>Developed a full-stack shopping website (Velvet Vogue) with a modern and responsive design for an enhanced user experience.</li>
+        <li>Implemented key features such as secure user authentication, product browsing, cart management, and a seamless checkout process.</li>
+        <li>Built a scalable backend using Node.js and Express.js with MongoDB for efficient data storage and retrieval.</li>
+        <li><strong>Technologies used:</strong> Frontend – React.js, CSS | Backend – Node.js, Express.js, MongoDB.</li>
+      </ul>
     </div>
+  <section id="contact" class="section">
+    <h2>Contact</h2>
+    <div class="contact-container">
+      <div class="messages" id="messages">
+        <div class="message visitor">Hello!</div>
+        <div class="message you">Feel free to send your message.</div>
+      </div>
+      <form id="contactForm" class="input-area" onsubmit="return sendMessage(event)">
+        <input
+          type="text"
+          id="messageInput"
+          placeholder="Type your message here..."
+          required
+          autocomplete="off"
+        />
+        <button type="submit">Send</button>
+      </form>
+    </div>
+    <p style="margin-top:1rem;">
+      Email:
+      <a href="mailto:alank1910@gmail.com" style="color: #f72585;">alank1910@gmail.com</a>
+    </p>
+    <p>Phone: +91 8340673995</p>
   </section>
 
   <footer>
-    <p>© 2025 Alankrita Verma. All rights reserved.</p>
+    &copy; 2025 Alankrita Verma. All rights reserved.
   </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
