@@ -1,7 +1,9 @@
+/* Reset and base styles */
 * {
   box-sizing: border-box;
   scroll-behavior: smooth;
 }
+
 body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
@@ -9,6 +11,8 @@ body {
   color: #3c1361;
   transition: background-color 0.3s, color 0.3s;
 }
+
+/* Header styles */
 header {
   position: fixed;
   width: 100%;
@@ -23,6 +27,8 @@ header {
   z-index: 1000;
   transition: background-color 0.3s, color 0.3s;
 }
+
+/* Navigation links */
 nav a {
   margin: 0 0.8rem;
   text-decoration: none;
@@ -31,6 +37,7 @@ nav a {
   position: relative;
   transition: color 0.3s;
 }
+
 nav a::after {
   content: '';
   position: absolute;
@@ -41,12 +48,16 @@ nav a::after {
   bottom: -4px;
   transition: width 0.3s;
 }
+
 nav a:hover::after {
   width: 100%;
 }
+
 nav a:hover {
   color: #b0003a;
 }
+
+/* Hero section */
 .hero {
   min-height: 100vh;
   display: flex;
@@ -60,6 +71,8 @@ nav a:hover {
   animation: fadeIn 1.2s ease-in-out;
   transition: background 0.3s, color 0.3s;
 }
+
+/* Fade in animation */
 @keyframes fadeIn {
   0% {
     opacity: 0;
@@ -70,12 +83,15 @@ nav a:hover {
     transform: translateY(0);
   }
 }
+
+/* Sections */
 .section {
   max-width: 1000px;
   margin: auto;
   padding: 4rem 2rem;
   transition: color 0.3s, background-color 0.3s;
 }
+
 .section h2 {
   font-size: 2rem;
   font-weight: 800;
@@ -83,11 +99,14 @@ nav a:hover {
   color: #720026;
   transition: color 0.3s;
 }
+
+/* Skills */
 .skills {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
 }
+
 .skill {
   background: #ffdde1;
   color: #720026;
@@ -97,6 +116,8 @@ nav a:hover {
   flex: 1 1 180px;
   transition: background-color 0.3s, color 0.3s;
 }
+
+/* Projects */
 .projects .project-item {
   background: #ffe0f0;
   border-radius: 12px;
@@ -105,22 +126,28 @@ nav a:hover {
   color: #3c1361;
   transition: background-color 0.3s, color 0.3s;
 }
+
 .projects .project-item h3 {
   margin-top: 0;
 }
+
 .projects .project-item ul {
   padding-left: 1.3rem;
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
 }
+
 .projects .project-item a {
   color: #f72585;
   text-decoration: none;
   font-weight: 600;
 }
+
 .projects .project-item a:hover {
   text-decoration: underline;
 }
+
+/* Contact form container */
 .contact-container {
   background: #fff0f6;
   border-radius: 15px;
@@ -129,6 +156,8 @@ nav a:hover {
   margin: auto;
   box-shadow: 0 2px 15px rgba(60, 19, 97, 0.15);
 }
+
+/* Messages box */
 .messages {
   max-height: 220px;
   overflow-y: auto;
@@ -138,6 +167,8 @@ nav a:hover {
   border-radius: 12px;
   background: white;
 }
+
+/* Message bubbles */
 .message {
   padding: 0.6rem 1rem;
   margin: 0.3rem 0;
@@ -146,22 +177,27 @@ nav a:hover {
   font-size: 0.9rem;
   line-height: 1.3;
 }
+
 .message.visitor {
   background: #fce1f3;
   color: #720026;
   margin-left: auto;
   text-align: right;
 }
+
 .message.you {
   background: #f72585;
   color: white;
   margin-right: auto;
   text-align: left;
 }
+
+/* Input area */
 .input-area {
   display: flex;
   gap: 0.5rem;
 }
+
 .input-area input[type='text'] {
   flex: 1;
   padding: 0.7rem 1rem;
@@ -171,9 +207,11 @@ nav a:hover {
   outline: none;
   transition: border-color 0.3s;
 }
+
 .input-area input[type='text']:focus {
   border-color: #720026;
 }
+
 .input-area button {
   background: #f72585;
   border: none;
@@ -184,9 +222,12 @@ nav a:hover {
   cursor: pointer;
   transition: background-color 0.3s;
 }
+
 .input-area button:hover {
   background: #b0003a;
 }
+
+/* Footer */
 footer {
   text-align: center;
   padding: 1rem;
@@ -196,59 +237,75 @@ footer {
   font-size: 0.9rem;
   letter-spacing: 0.05em;
 }
+
+/* Dark mode styles */
 .dark-mode {
   background-color: #1a1a2e !important;
   color: #f0f0f5 !important;
 }
+
 .dark-mode header {
   background-color: #16213e !important;
 }
+
 .dark-mode nav a {
   color: #f0f0f5 !important;
 }
+
 .dark-mode nav a:hover {
   color: #e94560 !important;
 }
+
 .dark-mode .hero {
   background: linear-gradient(to bottom right, #e94560, #0f3460) !important;
   color: #f0f0f5 !important;
 }
+
 .dark-mode .skills .skill {
   background: #0f3460 !important;
   color: #e94560 !important;
 }
+
 .dark-mode .projects .project-item {
   background: #0f3460 !important;
   color: #e94560 !important;
 }
+
 .dark-mode .contact-container {
   background: #16213e !important;
   box-shadow: 0 2px 15px rgba(233, 69, 96, 0.3) !important;
 }
+
 .dark-mode .messages {
   background: #0f3460 !important;
   border-color: #e94560 !important;
   color: #f0f0f5 !important;
 }
+
 .dark-mode .message.visitor {
   background: #4a4e69 !important;
   color: #f0f0f5 !important;
 }
+
 .dark-mode .message.you {
   background: #e94560 !important;
   color: #f0f0f5 !important;
 }
+
 .dark-mode .input-area input[type='text'] {
   background-color: #1a1a2e !important;
   border-color: #e94560 !important;
   color: #f0f0f5 !important;
 }
+
 .dark-mode .input-area input[type='text']:focus {
   border-color: #f72585 !important;
 }
+
 .dark-mode .input-area button {
   background: #e94560 !important;
 }
+
 .dark-mode footer {
   background-color: #0f3460 !important;
   color: #e94560 !important;
