@@ -12,7 +12,335 @@
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
   />
-  <link rel="stylesheet" href="styles.css" />
+  <style>
+    * {
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #fff0f6;
+      color: #3c1361;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    header {
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      background: #fff0f6;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      box-shadow: 0 2px 10px rgba(60, 19, 97, 0.15);
+      z-index: 1000;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    nav a {
+      margin: 0 0.8rem;
+      text-decoration: none;
+      color: #3c1361;
+      font-weight: 600;
+      position: relative;
+      transition: color 0.3s;
+    }
+    nav a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      background: #f72585;
+      left: 0;
+      bottom: -4px;
+      transition: width 0.3s;
+    }
+    nav a:hover::after {
+      width: 100%;
+    }
+    nav a:hover {
+      color: #b0003a;
+    }
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      background: linear-gradient(to bottom right, #f72585, #720026);
+      color: white;
+      text-align: center;
+      padding: 6rem 2rem 2rem;
+      animation: fadeIn 1.2s ease-in-out;
+      transition: background 0.3s, color 0.3s;
+    }
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .section {
+      max-width: 1000px;
+      margin: auto;
+      padding: 4rem 2rem;
+      transition: color 0.3s, background-color 0.3s;
+    }
+    .section h2 {
+      font-size: 2rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+      color: #720026;
+      transition: color 0.3s;
+    }
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .skill {
+      background: #ffe6f0;
+      color: #f72585;
+      padding: 0.75rem 1.5rem;
+      border-radius: 9999px;
+      font-weight: 600;
+      transition: transform 0.2s, background-color 0.3s, color 0.3s;
+      cursor: default;
+    }
+    .skill:hover {
+      transform: scale(1.05);
+      background: #f72585;
+      color: white;
+    }
+    .projects {
+      background: #fff0f6;
+      transition: background-color 0.3s;
+    }
+    .project-item {
+      background: #fff;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 4px 12px rgba(199, 38, 91, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s, color 0.3s;
+    }
+    .project-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 20px rgba(199, 38, 91, 0.15);
+      background-color: #fce4f3;
+    }
+    .project-item a {
+      display: inline-block;
+      margin-top: 0.5rem;
+      color: #f72585;
+      font-weight: 600;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .project-item a:hover {
+      color: #b0003a;
+      text-decoration: underline;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.875rem;
+      background: #ffe6f0;
+      color: #720026;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    /* Dark Mode Styles */
+    .dark-mode {
+      background-color: #3c1361;
+      color: #fce4f3;
+    }
+    .dark-mode header {
+      background-color: #720026;
+      color: #fce4f3;
+      box-shadow: 0 2px 10px rgba(255 255 255 / 0.15);
+    }
+    .dark-mode nav a {
+      color: #fce4f3;
+    }
+    .dark-mode nav a:hover {
+      color: #ffb6d4;
+    }
+    .dark-mode nav a::after {
+      background: #ff8fc1;
+    }
+    .dark-mode .hero {
+      background: linear-gradient(to bottom right, #f72585, #3c1361);
+      color: #ffe6f0;
+    }
+    .dark-mode .section {
+      color: #fce4f3;
+    }
+    .dark-mode .section h2 {
+      color: #ffa3c1;
+    }
+    .dark-mode .skills {
+      gap: 1rem;
+    }
+    .dark-mode .skill {
+      background: #720026;
+      color: #ffb6d4;
+    }
+    .dark-mode .skill:hover {
+      background: #ff6fa3;
+      color: #3c1361;
+    }
+    .dark-mode .projects {
+      background: #4a0f4a;
+    }
+    .dark-mode .project-item {
+      background: #720026;
+      color: #fce4f3;
+      box-shadow: 0 4px 12px rgba(255 182 212 / 0.3);
+    }
+    .dark-mode .project-item:hover {
+      background-color: #9e2f70;
+      box-shadow: 0 6px 20px rgba(255 182 212 / 0.5);
+    }
+    .dark-mode .project-item a {
+      color: #ffb6d4;
+    }
+    .dark-mode .project-item a:hover {
+      color: #ffe6f0;
+    }
+    .dark-mode footer {
+      background-color: #720026;
+      color: #fce4f3;
+    }
+
+    /* Contact Section */
+    #contact .contact-container {
+      background: #fff0f6;
+      width: 100%;
+      max-width: 500px;
+      border-radius: 8px;
+      box-shadow: 0 3px 15px rgba(247, 37, 133, 0.3);
+      display: flex;
+      flex-direction: column;
+      height: 70vh;
+      margin: 1rem auto 0;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    #contact .messages {
+      flex-grow: 1;
+      padding: 20px;
+      overflow-y: auto;
+      border-bottom: 1px solid #f72585;
+      color: #3c1361;
+      transition: color 0.3s;
+    }
+    #contact .message {
+      max-width: 75%;
+      margin-bottom: 12px;
+      padding: 10px 14px;
+      border-radius: 18px;
+      font-size: 14px;
+      line-height: 1.4;
+      word-wrap: break-word;
+      font-weight: 500;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    #contact .message.visitor {
+      background: #ffe6f0;
+      color: #b0003a;
+      align-self: flex-start;
+      border-bottom-left-radius: 4px;
+      box-shadow: 0 1px 5px rgba(247, 37, 133, 0.2);
+    }
+    #contact .message.you {
+      background: #f72585;
+      color: white;
+      align-self: flex-end;
+      border-bottom-right-radius: 4px;
+      box-shadow: 0 1px 5px rgba(247, 37, 133, 0.4);
+    }
+    #contact .input-area {
+      display: flex;
+      padding: 15px;
+      background: #fce4f3;
+      border-top: 1px solid #f72585;
+      border-radius: 0 0 8px 8px;
+      transition: background-color 0.3s;
+    }
+    #contact input[type="text"] {
+      flex-grow: 1;
+      padding: 10px 15px;
+      border: 1.5px solid #f72585;
+      border-radius: 9999px;
+      font-size: 14px;
+      outline: none;
+      transition: border-color 0.3s;
+      color: #720026;
+      background: #fff0f6;
+    }
+    #contact input[type="text"]:focus {
+      border-color: #b0003a;
+      background: #fff;
+      color: #3c1361;
+    }
+    #contact button {
+      margin-left: 10px;
+      padding: 10px 20px;
+      background: #f72585;
+      border: none;
+      border-radius: 9999px;
+      color: white;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    #contact button:hover {
+      background: #b0003a;
+    }
+    /* Dark mode contact */
+    .dark-mode #contact .contact-container {
+      background: #4a0f4a;
+    }
+    .dark-mode #contact .messages {
+      border-bottom: 1px solid #ff8fc1;
+      color: #fce4f3;
+    }
+    .dark-mode #contact .message.visitor {
+      background: #9e2f70;
+      color: #ffe6f0;
+      box-shadow: none;
+    }
+    .dark-mode #contact .message.you {
+      background: #ff6fa3;
+      color: #3c1361;
+      box-shadow: none;
+    }
+    .dark-mode #contact .input-area {
+      background: #720026;
+      border-top: 1px solid #ff8fc1;
+    }
+    .dark-mode #contact input[type="text"] {
+      border: 1.5px solid #ff8fc1;
+      background: #4a0f4a;
+      color: #fce4f3;
+    }
+    .dark-mode #contact input[type="text"]:focus {
+      border-color: #ffb6d4;
+      background: #720026;
+      color: #ffe6f0;
+    }
+    .dark-mode #contact button {
+      background: #ff6fa3;
+      color: #3c1361;
+    }
+    .dark-mode #contact button:hover {
+      background: #ff8fc1;
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -32,7 +360,7 @@
 
   <section id="home" class="hero">
     <h1>Hi, I'm Alankrita Verma</h1>
-    <p>Full-Stack Developer | Tech Enthusiast | Problem Solver</p>
+    <p>Final Year Student at KIIT Bhubaneswar | Full-Stack Developer | Tech Enthusiast</p>
   </section>
 
   <section id="skills" class="section">
@@ -69,6 +397,8 @@
         <li><strong>Technologies used:</strong> Frontend – React.js, CSS | Backend – Node.js, Express.js, MongoDB.</li>
       </ul>
     </div>
+  </section>
+
   <section id="contact" class="section">
     <h2>Contact</h2>
     <div class="contact-container">
@@ -98,6 +428,43 @@
     &copy; 2025 Alankrita Verma. All rights reserved.
   </footer>
 
-  <script src="script.js"></script>
+  <script>
+    function toggleDarkMode() {
+      document.body.classList.toggle('dark-mode');
+    }
+
+    function sendMessage(event) {
+      event.preventDefault();
+      const messagesContainer = document.getElementById('messages');
+      const messageInput = document.getElementById('messageInput');
+
+      const text = messageInput.value.trim();
+      if (text === '') return;
+
+      // Add visitor message
+      const visitorMsg = document.createElement('div');
+      visitorMsg.classList.add('message', 'visitor');
+      visitorMsg.textContent = text;
+      messagesContainer.appendChild(visitorMsg);
+
+      // Scroll to bottom
+      messagesContainer.scrollTop = messagesContainer.scrollHeight;
+
+      // Clear input
+      messageInput.value = '';
+
+      // Simulate reply from "you"
+      setTimeout(() => {
+        const youMsg = document.createElement('div');
+        youMsg.classList.add('message', 'you');
+        youMsg.textContent = "Thanks for your message! We'll get back to you soon.";
+        messagesContainer.appendChild(youMsg);
+
+        messagesContainer.scrollTop = messagesContainer.scrollHeight;
+      }, 1200);
+
+      return false;
+    }
+  </script>
 </body>
 </html>
