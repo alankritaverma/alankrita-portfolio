@@ -379,7 +379,7 @@
     <h2>Projects</h2>
 
     <div class="project-item">
-      <h3>Journaling Website - March 2024</h3>
+      <h3>Journaling Website</h3>
       <ul>
         <li>Developed a user-friendly journaling website (Binary Journals) that allows users to create, edit, and manage personal journal entries.</li>
         <li>Implemented features such as secure user authentication and a responsive design for seamless access across devices.</li>
@@ -389,7 +389,7 @@
     </div>
 
     <div class="project-item">
-      <h3>E-commerce Website - March 2025</h3>
+      <h3>E-commerce Website</h3>
       <ul>
         <li>Developed a full-stack shopping website (Velvet Vogue) with a modern and responsive design for an enhanced user experience.</li>
         <li>Implemented key features such as secure user authentication, product browsing, cart management, and a seamless checkout process.</li>
@@ -441,19 +441,15 @@
       const text = messageInput.value.trim();
       if (text === '') return;
 
-      // Add visitor message
       const visitorMsg = document.createElement('div');
       visitorMsg.classList.add('message', 'visitor');
       visitorMsg.textContent = text;
       messagesContainer.appendChild(visitorMsg);
 
-      // Scroll to bottom
       messagesContainer.scrollTop = messagesContainer.scrollHeight;
 
-      // Clear input
       messageInput.value = '';
 
-      // Simulate reply from "you"
       setTimeout(() => {
         const youMsg = document.createElement('div');
         youMsg.classList.add('message', 'you');
